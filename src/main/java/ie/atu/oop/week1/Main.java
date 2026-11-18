@@ -1,17 +1,95 @@
 package ie.atu.oop.week1;
+import java.util.Scanner;
+import java.util.ArrayList;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Member> members = new ArrayList<>();
+        int choice = 0;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        while(choice!=5) {
+            System.out.println("--------------------------------------------------");
+            System.out.println("Welcome to the Membership Management System.");
+            System.out.println("Please enter a number to choose one of the following options.");
+            System.out.println("1: Add Member");
+            System.out.println("2: Display All Members");
+            System.out.println("3: Search By Member ID");
+            System.out.println("4: Remove Member");
+            System.out.println("5. Exit");
+            System.out.println("Your choice: ");
+            choice = sc.nextInt();
+            sc.nextLine();
+            boolean found = false;
+
+            switch (choice) {
+                case 1:
+                    System.out.println("Please enter a member ID: ");
+                    String memberId = sc.nextLine();
+                    System.out.println("Please enter a member name: ");
+                    String name = sc.nextLine();
+                    System.out.println("Please enter a member age: ");
+                    int age = sc.nextInt();
+                    sc.nextLine();
+                    try {
+                        members.add(new Member(memberId, name, age));
+                        System.out.println("Member added successfully.");
+                    }catch(IllegalArgumentException e)
+                    {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 2:
+                    if (members.isEmpty()) {
+                        System.out.println("There are no members currently.");
+                    }
+                    else {
+                        for (Member member : members) {
+                            System.out.println(member);
+                        }
+                    }
+                    break;
+                case 3:
+                    System.out.println("Please enter a member ID: ");
+                    String searchId  = sc.nextLine();
+                    for(Member member : members)
+                    {
+                        if(member.getMemberId().equals(searchId))
+                        {
+                            System.out.println(member);
+                            found = true;
+                        }
+                        if (!found)
+                        {
+                            System.out.println("Member not found.");
+                        }
+                    }
+
+                    break;
+                case 4:
+                    System.out.println("Please enter a member ID: ");
+                    String removeId = sc.nextLine();
+                    for(Member member : members){
+                        if(member.getMemberId().equals(removeId))
+                        {
+                            members.remove(member);
+                            System.out.println("Member successfully removed.");
+                            found = true;
+                            break;
+                        }
+                        if(!found)
+                        {
+                            System.out.println("Member not found.");
+                        }
+                    }
+                    break;
+                case 5:
+                    System.out.println("Goodbye");
+                    break;
+                default:
+                    System.out.println("Invalid option. Please try again: ");
+            }
         }
+        sc.close();
     }
 }
