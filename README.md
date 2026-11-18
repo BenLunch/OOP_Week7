@@ -29,16 +29,40 @@ Describe two or three important problems you identified
 in your original code. Explain what you changed and
 why it works now.
 
+**Problem 1: I failed to remember how to populate the object with the required scanner inputs. In my
+review branch I managed to successfully figure out how to transfer the scanner inputs into the array**
+
+**Problem 2: I failed to utilise the enhanced for loop which would've greatly helped when implementing
+the displayDetails method. In my review branch I have used enhanced for loops in numerous instances such 
+as displaying the members, case 3 when searching for members and case 4 removing members**
+
+**Problem 3: I did not use a toString for my display details function. This I now know is an improper 
+coding practice cause the toString gives a definitive way for a member to be displayed which can then
+be used my other classes**
+
 ## 3. Reflection
 
 **What did you understand during the examination
 but struggle to implement?**
 
+**Answer: I understand switch statements, yet I couldn't correctly implement it into my original exam it had been a 
+while since I had done them. I also knew how to do the exception handling but wasn't able to implement it 
+because I was still stuck on aspects of the first part. I also struggled with populating Member with the
+information from scanner which led to a large roadblock for me**
+
 **What was the most important thing you learned
 from correcting your code?**
 
+**Answer: I feel like I have a far better understanding of ArrayLists now. Figuring out how to use switch
+again I feel like will be super helpful in future coding work. I also used a lot of different websites
+when figuring  out how to implement the features I wanted like W3 schools and Stack Overflow**
+
 **What would you do differently in your next
 coding test?**
+
+**Answer: I need to create far better notes and brush up on more previous material. Not just the stuff we 
+have done in labs but also everything encompassed in the topics we have done so that way I properly
+know how to utilise the things necessary for the test.**
 
 ---
 
