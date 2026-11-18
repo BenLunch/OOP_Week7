@@ -31,7 +31,13 @@ public class Main {
                     System.out.println("Please enter a member age: ");
                     int age = sc.nextInt();
                     sc.nextLine();
-                    members.add(new Member(memberId, name, age));
+                    try {
+                        members.add(new Member(memberId, name, age));
+                        System.out.println("Member added successfully.");
+                    }catch(IllegalArgumentException e)
+                    {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 2:
                     if (members.isEmpty()) {

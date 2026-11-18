@@ -6,6 +6,10 @@ public class Member {
     private int age;
 
     public Member(String memberId, String name, int age) {
+        if(age <= 0)
+        {
+            throw new IllegalArgumentException("Invalid age. Please try again.");
+        }
         this.memberId = memberId;
         this.name = name;
         this.age = age;
